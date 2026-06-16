@@ -4,6 +4,7 @@ import logging
 
 app = Flask(__name__)
 
+# Load trained model
 model = joblib.load("model.pkl")
 
 flowers = [
@@ -12,26 +13,39 @@ flowers = [
     "Virginica"
 ]
 
+# Logging
 logging.basicConfig(
     filename="app.log",
-    level=logging.INFO
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
 )
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
+
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    sl=float(request.form["sl"])
-    sw=float(request.form["sw"])
-    pl=float(request.form["pl"])
-    pw=float(request.form["pw"])
+    sl = float(request.form["sl"])
+    sw = float(request.form["sw"])
+    pl = float(request.form["pl"])
+    pw = float(request.form["pw"])
 
-    prediction=model.predict([[sl,sw,pl,pw]])
+    prediction = model.predict([[sl, sw, pl, pw]])
 
-    result=flowers[prediction[0]]
+    result = flowers[prediction[0]]
+
+    # Select flower image
+    image_map = {
+        "Setosa": "images/setosa.jpg",
+        "Versicolor": "images/versicolor.jpg",
+        "Virginica": "images/virginica.jpg"
+    }
+
+    flower_image = image_map[result]
 
     logging.info(
         f"Website Prediction: {result}"
@@ -39,22 +53,24 @@ def predict():
 
     return render_template(
         "index.html",
-        prediction=result
+        prediction=result,
+        image=flower_image
     )
+
 
 @app.route("/api/predict", methods=["POST"])
 def api_predict():
 
-    data=request.get_json()
+    data = request.get_json()
 
-    prediction=model.predict([[
+    prediction = model.predict([[
         data["sepal_length"],
         data["sepal_width"],
         data["petal_length"],
         data["petal_width"]
     ]])
 
-    result=flowers[prediction[0]]
+    result = flowers[prediction[0]]
 
     logging.info(
         f"API Prediction: {result}"
@@ -64,9 +80,10 @@ def api_predict():
         "prediction": result
     })
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     app.run(
-    host="0.0.0.0",
-    port=5000,
-    debug=True
-)
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )

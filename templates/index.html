@@ -207,7 +207,7 @@
     </div>
 
     <img
-        src="{{ url_for('static', filename=image) }}"
+        src="{{ url_for('static', filename=image if image else 'images/setosa.jpg') }}"
         class="flower-image">
 
     {% endif %}
