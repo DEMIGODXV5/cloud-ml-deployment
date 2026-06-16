@@ -1,0 +1,38 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 250-986-500
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2026 12:43:55] "[31m[1mPOST /api/predict HTTP/1.1[0m" 400 -
+INFO:root:API Prediction: Setosa
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2026 12:44:45] "POST /api/predict HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 250-986-500
+INFO:werkzeug: * Detected change in 'E:\\MLDeployment\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.100:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 250-986-500
+INFO:werkzeug: * Detected change in 'E:\\MLDeployment\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.100:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 250-986-500
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2026 12:48:52] "GET / HTTP/1.1" 200 -
+INFO:root:Website Prediction: Setosa
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2026 12:49:57] "POST /predict HTTP/1.1" 200 -

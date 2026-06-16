@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Iris Flower Predictor</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+            text-align:center;
+            padding-top:50px;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        input{
+            width:80%;
+            padding:10px;
+            margin:10px;
+        }
+
+        button{
+            padding:10px 25px;
+            background:#007bff;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        h2{
+            color:green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Iris Flower Predictor</h1>
+
+<form action="/predict" method="POST">
+
+<input type="text" name="sl" placeholder="Sepal Length">
+
+<input type="text" name="sw" placeholder="Sepal Width">
+
+<input type="text" name="pl" placeholder="Petal Length">
+
+<input type="text" name="pw" placeholder="Petal Width">
+
+<br>
+
+<button type="submit">
+
+Predict
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<h2>
+
+Prediction : {{ prediction }}
+
+</h2>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
